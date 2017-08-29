@@ -13,7 +13,7 @@ export class GameComponent implements OnInit {
   player1Name = 'player1';
   player2Name = 'player2';
   player1 = {'name': this.player1Name, 'active': true, 'symbol': 'circle', 'boxes': []};
-  player2 = {'name': this.player2Name, 'active': false, 'symbol': 'cross', 'boxes': []}
+  player2 = {'name': this.player2Name, 'active': false, 'symbol': 'cross', 'boxes': []};
   currentPlayer = null;
   gameOver = false;
 
@@ -44,9 +44,9 @@ export class GameComponent implements OnInit {
     'col3': ['r1c3', 'r2c3', 'r3c3'],
     'diag1': ['r1c1', 'r2c2', 'r3c3'],
     'diag2': ['r1c3', 'r2c2', 'r3c1'],
-  }
+  };
 
-  winingCombosKeys = Object.keys(this.winingCombos)
+  winingCombosKeys = Object.keys(this.winingCombos);
 
   boxClicked(event) {
     const row = event.currentTarget.parentElement.id;
@@ -79,8 +79,9 @@ export class GameComponent implements OnInit {
       const checkArray = this.winingCombos[key];
       let didWin = 0;
       for (let ii = 0; ii < this.currentPlayer.boxes.length; ii++) {
-        if (checkArray.indexOf(this.currentPlayer.boxes[ii]) > -1) {}
-        didWin += 1;
+        if (checkArray.indexOf(this.currentPlayer.boxes[ii]) > -1) {
+          didWin += 1;
+        }
       }
       if (didWin === 3) {
         this.gameOver = true;
@@ -106,7 +107,7 @@ export class GameComponent implements OnInit {
         'r3c3': {'blank': true, 'cross': false, 'circle': false, 'player': null}}
     };
     this.player1 = {'name': this.player1Name, 'active': true, 'symbol': 'circle', 'boxes': []};
-    this.player2 = {'name': this.player2Name, 'active': false, 'symbol': 'cross', 'boxes': []}
+    this.player2 = {'name': this.player2Name, 'active': false, 'symbol': 'cross', 'boxes': []};
     this.currentPlayer = null;
     this.gameOver = false;
   }

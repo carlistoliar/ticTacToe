@@ -1,0 +1,12 @@
+<!--<p *ngFor=" let key of boardComponents ">{{key}}</p>-->
+
+<div *ngFor=" let row of boardRows" class="cf" id="{{row}}">
+  <div *ngFor="let box of boardComponents[row]" class="box" id="{{box}}"
+       [ngClass]="{blank:boardSquaresStatus[row][box].blank, circle:boardSquaresStatus[row][box].circle, cross:boardSquaresStatus[row][box].cross}"
+       (click)="boxClicked($event)"
+  ></div>
+</div>
+<br>
+<div>
+  <button class="btn-dark" (click)="resetGame()">Reset Game</button>
+</div>

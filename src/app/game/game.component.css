@@ -1,0 +1,38 @@
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+
+.blank{
+  border: 1px solid black;
+  width: 100px; height:
+  100px;
+  background-image: url('../../assets/img/blank.png');
+  cursor:pointer;
+}
+
+.cross{
+  border: 1px solid black;
+  width: 100px; height:
+  100px;
+  background-image: url('../../assets/img/cross.png');
+  cursor:pointer;
+}
+
+.circle{
+  border: 1px solid black;
+  width: 100px; height:
+  100px;
+  background-image: url('../../assets/img/circle.png');
+  cursor:pointer;
+}
+
+.box{
+  float: left;
+}

@@ -64,7 +64,15 @@ export class GameComponent implements OnInit {
         this.boardSquaresStatus[row][box].blank = false;
         this.boardSquaresStatus[row][box][this.currentPlayer.symbol] = true;
         this.currentPlayer.boxes.push(box);
-        this.checkWinner();
+        this.gameOver = this.checkWinner();
+        if (this.gameOver) {
+          alert(this.currentPlayer.name + '  WINS!');
+        }else {
+          if (this.player1.boxes.length + this.player2.boxes.length === 9) {
+            this.gameOver = true;
+            alert('No One Wins, GAME OVER');
+          }
+        }
       } else {
         alert('This square is already played');
       }
@@ -84,11 +92,11 @@ export class GameComponent implements OnInit {
         }
       }
       if (didWin === 3) {
-        this.gameOver = true;
-        alert(this.currentPlayer.name + '  WINS!');
-        break;
+        return true;
+        // break;
       }
     }
+    return false;
   }
 
   resetGame() {
